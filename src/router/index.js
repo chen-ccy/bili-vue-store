@@ -4,10 +4,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 import Display from "@/components/common/display";
+import home from "@/views/home/home";
 const routes = [
   {
     path: '/home',
-    component:Display
+    component:home
   },
   {
     path: '/category',
