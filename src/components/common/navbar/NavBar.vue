@@ -21,7 +21,8 @@
     line-height: 44px;
     color: white;
     text-align: center;
-    background-color: var(--color-high-text)
+    background-color: var(--color-high-text);
+    box-shadow: 0 1px 1px rgba(100,100,100,.1);
 
   }
   .left,.right{
