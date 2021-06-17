@@ -1,13 +1,16 @@
 <template>
-  <div id="home">
-    <nav-bar> <div slot="center">购物街</div> </nav-bar>
-    <home-swiper :banners="banners" ></home-swiper>
-    <RecommentView :recommend="recommend"></RecommentView>
-    <FeatureView ></FeatureView>
+  <div class="home">
+    <nav-bar class="home-nav"> <div slot="center">购物街</div> </nav-bar>
 
-    <TabControl :title="['流行','新款','精选']"></TabControl>
+    <Scroll class="content">
+        <home-swiper :banners="banners" class="home-swiper"></home-swiper>
+        <RecommentView :recommend="recommend"></RecommentView>
+        <FeatureView ></FeatureView>
 
+        <TabControl :title="['流行','新款','精选']"></TabControl>
 
+        <GoodsList :goods="goods.pop.list"></GoodsList>
+    </Scroll>
 
 
     <div style="height: 44px;width: 100%"></div>
@@ -18,9 +21,11 @@
 
   import NavBar from "@/components/common/navbar/NavBar";
   import TabControl from "@/components/content/TabControl";
+  import GoodsList from "@/components/content/goods/GoodsList";
+  import Scroll from "@/components/common/scroll/Scroll";
 
   import homeSwiper from "@/views/home/childComps/homeSwiper";
-  import RecommentView from "@/views/home/childComps/RecommentView";
+  import RecommentView from "@/views/home/childComps/RecommendView";
   import FeatureView from "@/views/home/childComps/FeatureView";
 
 
@@ -31,6 +36,8 @@
     components:{
       NavBar,
       TabControl,
+      GoodsList,
+      Scroll,
       homeSwiper,
       RecommentView,
       FeatureView,
@@ -63,8 +70,7 @@
         this.goods[type].page++;
         const page = this.goods.pop.page++;
         getHomeGoods(type,page).then(res =>{
-          //this.goods[type].push(...res.data.list)
-          console.log(res.data.list);
+          this.goods[type].list.push(...res.data.list)
 
         })
       }
@@ -76,4 +82,29 @@
 
 <style scoped>
 
+  .home{
+
+    height: 100vh;
+    position: relative;
+  }
+
+  .home-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+  }
+
+  .home-swiper{
+
+  }
+  .content{
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    top: 44px;
+    overflow: hidden;
+
+  }
 </style>

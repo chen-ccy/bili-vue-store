@@ -22,6 +22,7 @@
 <style scoped>
   .recomment-view{
     display: flex;
+    border-bottom: 10px solid #eee;
   }
   .recomment-view-item{
     padding: 10px;
