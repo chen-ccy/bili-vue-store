@@ -2,7 +2,12 @@
   <div class="home">
     <nav-bar class="home-nav"> <div slot="center">购物街</div> </nav-bar>
 
-    <Scroll class="content">
+    <Scroll class="content"
+            ref="scroll"
+            :probe-type=3
+            :pull-up-load="true"
+            @scroll="contentScroll"
+            @pullingUp="loadMore">
         <home-swiper :banners="banners" class="home-swiper"></home-swiper>
         <RecommentView :recommend="recommend"></RecommentView>
         <FeatureView ></FeatureView>
@@ -12,6 +17,7 @@
         <GoodsList :goods="goods.pop.list"></GoodsList>
     </Scroll>
 
+    <BackTop @click.native="backtopClick" v-show="isBackTopShow"></BackTop>
 
     <div style="height: 44px;width: 100%"></div>
   </div>
@@ -23,6 +29,7 @@
   import TabControl from "@/components/content/TabControl";
   import GoodsList from "@/components/content/goods/GoodsList";
   import Scroll from "@/components/common/scroll/Scroll";
+  import BackTop from "@/components/content/backTop/BackTop";
 
   import homeSwiper from "@/views/home/childComps/homeSwiper";
   import RecommentView from "@/views/home/childComps/RecommendView";
@@ -38,6 +45,7 @@
       TabControl,
       GoodsList,
       Scroll,
+      BackTop,
       homeSwiper,
       RecommentView,
       FeatureView,
@@ -52,12 +60,17 @@
           new:{ page:0,list:[] },
           sell:{ page:0,list:[] },
 
-        }
+        },
+        isBackTopShow:false
       }
     },
     created(){
       this.getHomeMultidata();
-      this.getHomeGoods('pop')
+      this.getHomeGoods('pop');
+      this.$bus.$on('itemImageLoad', () => {
+        this.$refs.scroll.refresh()
+
+      })
     },
     methods:{
       getHomeMultidata(){
@@ -67,12 +80,24 @@
         })
       },
       getHomeGoods(type){
-        this.goods[type].page++;
-        const page = this.goods.pop.page++;
+        const page = this.goods[type].page + 1;
+
         getHomeGoods(type,page).then(res =>{
           this.goods[type].list.push(...res.data.list)
+          this.goods[type].page++;
 
         })
+        //this.$refs.scroll.finishPullUp()
+
+      },
+      backtopClick(){
+        this.$refs.scroll.scrollTo(0,0)
+      },
+      contentScroll(position){
+        this.isBackTopShow = -(position) > 1000
+      },
+      loadMore(){
+        getHomeGoods('pop')
       }
 
     }
