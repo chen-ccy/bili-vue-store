@@ -20,7 +20,10 @@
     },
     data(){
       return {
-        scroll:null
+        scroll:null,
+        pullupload:setTimeout(() => {
+          this.scroll.finishPullUp()
+        },1000)
       }
     },
     mounted(){
@@ -31,28 +34,36 @@
 
       });
 
-      this.scroll.on('scroll',(position) => {
-        this.$emit('scroll',position.y)
-      });
+      if(this.probeType === 2 || this.probeType === 3){
+        this.scroll.on('scroll',(position) => {
+          this.$emit('scroll',position)
+        });
+      }
+
 
       this.scroll.on('pullingUp',() => {
         this.$emit('pullingUp')
-        //console.log('上拉加载更多')
-        //setTimeout(() => this.scroll.finishPullUp(),2000)
-
       })
 
 
     },
     methods:{
       scrollTo(x,y,time=300){
-        this.scroll.scrollTo(x,y,time)
+        this.scroll && this.scroll.scrollTo(x,y,time)
       },
       refresh(){
-        this.scroll.refresh()
+        this.scroll && this.scroll.refresh();
+        //console.log('refresh');
       },
       finishPullUp(){
-        this.scroll.finishPullUp()
+        if(this.pullupload) clearTimeout(this.pullupload)
+        this.pullupload = setTimeout(() => {
+          this.scroll.finishPullUp()
+        },1000)
+        //this.scroll.finishPullUp()
+      },
+      scrollY(){
+        return this.scroll ? this.scroll.y : 0
       }
     },
 
