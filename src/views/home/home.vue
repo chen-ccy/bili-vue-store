@@ -161,6 +161,8 @@
     left: 0;
     right: 0;
     z-index: 9;
+    color: white;
+    background-color: var(--color-high-text);
   }
 
   .home-swiper{

@@ -5,7 +5,13 @@ Vue.use(VueRouter);
 
 import Display from "@/components/common/display";
 import home from "@/views/home/home";
+import Detail from "@/views/detail/Detail";
+
 const routes = [
+  {
+    path:'',
+    redirect:'./home'
+  },
   {
     path: '/home',
     component:home
@@ -23,9 +29,11 @@ const routes = [
     component:Display
   },
   {
-    path:'',
-    redirect:'./home'
+    path:'/detail/:iid',
+    component:Detail
   }
+
+
 ]
 
 const router = new VueRouter({
