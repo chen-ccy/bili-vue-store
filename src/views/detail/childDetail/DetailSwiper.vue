@@ -1,7 +1,7 @@
 <template>
 
     <Swiper class="detail-swiper">
-      <SwiperItem v-for="item in SwiperImage">
+      <SwiperItem v-for="item in swiperImage">
         <img :src="item" alt="">
       </SwiperItem>
     </Swiper>
@@ -15,7 +15,7 @@
   export default {
     name: "DetailSwiper",
     props:{
-      SwiperImage:{
+      swiperImage:{
         type: Array,
         default(){
           return []
