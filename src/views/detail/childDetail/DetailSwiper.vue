@@ -1,8 +1,8 @@
 <template>
 
     <Swiper class="detail-swiper">
-      <SwiperItem v-for="item in swiperImage">
-        <img :src="item" alt="">
+      <SwiperItem v-for="item in swiperImage" >
+        <img :src="item" alt="" @load="imageLoad">
       </SwiperItem>
     </Swiper>
 
@@ -22,10 +22,24 @@
         }
       }
     },
+    data(){
+      return {
+        isLoad:false
+      }
+    },
     components:{
       Swiper,
       SwiperItem
     },
+    methods:{
+      imageLoad(){
+        if(!this.isLoad){
+          this.$emit('imageLoad');
+          this.isLoad  = true;
+        }
+
+      }
+    }
   }
 </script>
 

@@ -4,10 +4,11 @@
     <div class="info-price">
       <span class="n-price">{{goods.newPrice}}</span>
       <span class="o-price">{{goods.oldPrice}}</span>
+      <span class="discount" v-if="goods.discount">{{goods.discount}}</span>
     </div>
-    <div class="info-other" v-if="goods.column">
-      <span>{{goods.column[0]}}</span>
-      <span>{{goods.column[1]}}</span>
+    <div class="info-other" v-if="goods.columns">
+      <span>{{goods.columns[0]}}</span>
+      <span>{{goods.columns[1]}}</span>
       <span>{{goods.services[goods.services.length-1].name}}</span>
     </div>
     <div class="info-service">
@@ -34,5 +35,65 @@
 </script>
 
 <style scoped>
+.info-title{
+  color: black;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.info-price{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+  .n-price{
+    margin-left: 10px;
+    color: var(--color-tint);
+    font-size: 25px;
 
+  }
+  .o-price{
+    text-decoration:line-through;
+    margin-left: 5px;
+  }
+  .discount{
+    display: inline-block;
+    color: white;
+    background-color: var(--color-tint);
+    width: 50px;
+    height: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 20px;
+    vertical-align: top;
+    margin-left: 5px;
+
+
+  }
+
+  .info-other{
+    display: flex;
+    justify-content:space-between;
+    margin: 5px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 5px;
+
+    color: darkgrey;
+  }
+  .info-other span{
+    display: inline-block;
+  }
+
+  .info-service{
+    display: flex;
+    height: 60px;
+    line-height: 45px;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 4px solid gainsboro;
+  }
+  .info-service span img{
+    width: 15px;
+    vertical-align: text-bottom;
+
+  }
 </style>
