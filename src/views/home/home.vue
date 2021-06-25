@@ -37,7 +37,8 @@
 
 
   import {getHomeMultidata,getHomeGoods} from "@/networks/home";
-  import {debounce} from "@/common/utils";
+  //import {debounce} from "@/common/utils";
+  import {itemListenerMixin} from "@/common/mixin";
 
   export default {
     name: "home.vue",
@@ -52,6 +53,7 @@
       FeatureView,
 
     },
+    mixins:[itemListenerMixin],
     data(){
       return {
         banners:[],
@@ -84,13 +86,9 @@
 
     },
     mounted(){
-      const refresh = debounce(this.$refs.scroll.refresh,500);
-      //alert(refresh)
-      this.$bus.$on('itemImageLoad', () => {
-        //this.$refs.scroll.refresh()
-          refresh()
-      })
+
     },
+
     methods:{
       getHomeMultidata(){
         getHomeMultidata().then(res =>{

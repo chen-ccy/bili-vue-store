@@ -85,15 +85,19 @@
 
   .info-service{
     display: flex;
-    height: 60px;
-    line-height: 45px;
     justify-content: space-between;
-    padding: 5px;
+    line-height: 60px;
     border-bottom: 4px solid gainsboro;
   }
+.info-service-item span {
+  font-size: 13px;
+  color: #333;
+}
   .info-service span img{
-    width: 15px;
-    vertical-align: text-bottom;
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 2px;
 
   }
 </style>

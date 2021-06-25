@@ -8,7 +8,7 @@
 
 <script>
 
-  import BScrool from 'better-scroll'
+  import BScroll from 'better-scroll'
 
 
 
@@ -27,40 +27,38 @@
       }
     },
     mounted(){
-      this.scroll = new BScrool(this.$refs.wrapper,{
-        probeType:this.probeType,
-        click:true,
-        pullUpLoad:this.pullUpLoad,
-
-      });
-
-      if(this.probeType === 2 || this.probeType === 3){
-        this.scroll.on('scroll',(position) => {
-          this.$emit('scroll',position)
-        });
-      }
-
-
-      this.scroll.on('pullingUp',() => {
-        this.$emit('pullingUp')
-      })
-
-
+      setTimeout(this.__initScroll, 20)
     },
     methods:{
-      scrollTo(x,y,time=300){
-        this.scroll && this.scroll.scrollTo(x,y,time)
+      __initScroll() {
+        // 1.初始化BScroll对象
+        if (!this.$refs.wrapper) return
+        this.scroll = new BScroll(this.$refs.wrapper, {
+          probeType: this.probeType,
+          click: true,
+          pullUpLoad: this.pullUpLoad
+        })
+
+        // 2.将监听事件回调
+        this.scroll.on('scroll', pos => {
+          this.$emit('scroll', pos)
+        })
+
+        // 3.监听上拉到底部
+        this.scroll.on('pullingUp', () => {
+          console.log('上拉加载');
+          this.$emit('pullingUp')
+        })
       },
-      refresh(){
-        this.scroll && this.scroll.refresh();
+      refresh() {
+        this.scroll && this.scroll.refresh && this.scroll.refresh()
         //console.log('refresh');
       },
-      finishPullUp(){
-        if(this.pullupload) clearTimeout(this.pullupload)
-        this.pullupload = setTimeout(() => {
-          this.scroll.finishPullUp()
-        },1000)
-        //this.scroll.finishPullUp()
+      finishPullUp() {
+        this.scroll && this.scroll.finishPullUp && this.scroll.finishPullUp()
+      },
+      scrollTo(x, y, time) {
+        this.scroll && this.scroll.scrollTo && this.scroll.scrollTo(x, y, time)
       },
       scrollY(){
         return this.scroll ? this.scroll.y : 0

@@ -1,6 +1,6 @@
 <template>
   <div class="goods-list-item" @click="goodItemClick">
-    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
+    <img :src="goodsItemImage" alt="" @load="imageLoad">
 
     <div class="goods-info">
     <p>{{goodsItem.title}}</p>
@@ -14,6 +14,11 @@
     name: "GoodsListItem",
     props:{
       goodsItem:{}
+    },
+    computed:{
+      goodsItemImage(){
+        return this.goodsItem.image || this.goodsItem.show.img
+      }
     },
     methods:{
       imageLoad(){
