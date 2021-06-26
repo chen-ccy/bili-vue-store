@@ -69,6 +69,9 @@
 </script>
 
 <style scoped>
+  .shop-info{
+    border-bottom: 5px solid #f2f5f8;
+  }
   .shop-top{
     height: 90px;
     line-height: 90px;
@@ -81,10 +84,9 @@
     margin: 0px 10px 0px 5px;
   }
   .shop-middle{
+    margin-top: 15px;
     display: flex;
-    color: black;
-    font-size: 15px;
-    justify-content: space-around;
+    align-items: center;
 
   }
   .shop-middle .shop-middle-item{
@@ -94,9 +96,10 @@
 
   .shop-middle-left{
     display: flex;
-    padding-top: 20px;
-
-
+    justify-content: space-evenly;
+    color: #333;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,.1);
 
   }
   .shop-middle-left>div{
@@ -124,22 +127,21 @@
     text-align: left;
     margin-left: 10px;
   }
+  .shop-middle-right .score-better {
+    color: red;
+  }
   .shop-middle-right table{
     margin: 0px auto;
   }
 
-  .shop-middle-right .better-more{
-
-  }
-  .shop-middle-right .better{
+  .shop-middle-right .better span{
     color:white;
-    display: inline-block;
+
     background-color: green;
-    height: 21px;
-    line-height: 21px;
+    text-align: center;
 
   }
-  .shop-middle-right .better-more{
+  .shop-middle-right .better-more span{
     background-color: red;
   }
   .shop-bottom{

@@ -76,6 +76,7 @@
     margin: 5px;
     border-bottom: 1px solid lightgrey;
     padding-bottom: 5px;
+    border-bottom: 1px solid rgba(100,100,100,.1);
 
     color: darkgrey;
   }

@@ -12,6 +12,8 @@
 
 
 
+
+
   export default {
     name: "Scroll",
     props:{
@@ -36,7 +38,7 @@
         this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: true,
-          pullUpLoad: this.pullUpLoad
+          pullUpLoad: true
         })
 
         // 2.将监听事件回调
