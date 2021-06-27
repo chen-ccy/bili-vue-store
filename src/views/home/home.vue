@@ -71,11 +71,12 @@
         saveY:0
       }
     },
-    active(){
-      this.$refs.scroll.scrollTo(0,this.saveY,0)
+    activated(){
+      this.$refs.scroll.scrollTo(0,this.saveY,100)
+      this.$refs.scroll.refresh()
     },
     deactivated(){
-      this.saveY = -this.$refs.scroll.scrollY()
+      this.saveY = this.$refs.scroll.scrollY()
     },
     created(){
       this.getHomeMultidata();

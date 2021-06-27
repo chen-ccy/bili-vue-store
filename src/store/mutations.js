@@ -1,10 +1,9 @@
 const mutations = {
   addToCart(state,playload){
-    state.cartLisat.push(playload)
+    state.cartList.push(playload)
   },
   addCount(state,playload){
     playload.count++
-    console.log(playload.count);
   }
 }
 

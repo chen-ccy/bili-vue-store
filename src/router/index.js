@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import Display from "@/components/common/display";
 import home from "@/views/home/home";
 import Detail from "@/views/detail/Detail";
+import Cart from "@/views/cart/Cart";
 
 const routes = [
   {
@@ -22,7 +23,7 @@ const routes = [
   },
   {
     path: '/shopcart',
-    component:Display
+    component:Cart
   },
   {
     path: '/profile',

@@ -4,7 +4,6 @@
     <detail-nav-bar class="detail-nav-bar" @navTabClick="navTabClick" ref="navBar"/>
     <Scroll class="content" ref="scroll"
       :probe-type="3" @scroll="contentScroll">
-      {{this.$store.state.cartLisat}}
       <DetailSwiper :swiper-image="swiperImage" @imageLoad="imageLoad"/>
       <detail-base-info :goods="goods"/>
       <detail-shop-info :shop="shopInfo"/>
@@ -129,6 +128,7 @@
 
 
         this.$store.dispatch('addCart',obj)
+        alert("已加入购物车")
       }
     }
   }

@@ -7,7 +7,7 @@ import getters from "@/store/getters";
 Vue.use(Vuex);
 
 const state = {
-    cartLisat:[]
+    cartList:[]
 }
 const store = new Vuex.Store({
   state,
