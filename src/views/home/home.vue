@@ -59,9 +59,9 @@
         banners:[],
         recommend:[],
         goods:{
-          'pop':{ page:0,list:[],scrollY:-590 },
-          'new':{ page:0,list:[],scrollY:-590 },
-          'sell':{ page:0,list:[],scrollY:-590 },
+          'pop':{ page:0,list:[],scrollY:-550 },
+          'new':{ page:0,list:[],scrollY:-540 },
+          'sell':{ page:0,list:[],scrollY:-550 },
 
         },
         currentType: 'pop',
@@ -73,6 +73,7 @@
     },
     activated(){
       this.$refs.scroll.scrollTo(0,this.saveY,100)
+      this.$refs.scroll.refresh()
       this.$refs.scroll.refresh()
     },
     deactivated(){
@@ -138,6 +139,7 @@
         this.$refs.tabControl2.currentIndex = index;
       },
       swiperImageLoad(){
+
         this.TabControlOffserTop = this.$refs.tabControl2.$el.offsetTop;
       }
 

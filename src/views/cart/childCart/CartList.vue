@@ -27,6 +27,9 @@
         this.$refs.scroll.refresh()
       },1000)
     },
+    activated(){
+      this.$refs.scroll.refresh()
+    },
     computed:{
       ...mapGetters({
         length: 'getCount',

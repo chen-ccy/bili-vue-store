@@ -14,6 +14,7 @@
 
     </Scroll>
     <DetailBottomNav @addToCart="addToCart"/>
+    <Toast class="detail-toast" v-show="toastShow" :message="message"/>
   </div>
 
 </template>
@@ -32,6 +33,7 @@
 
   import Scroll from "@/components/common/scroll/Scroll";
   import GoodsList from "@/components/content/goods/GoodsList";
+  import Toast from "@/components/common/toast/Toast";
 
 
   import {getDetail} from "@/networks/detail";
@@ -52,7 +54,8 @@
       DetailCommentInfo,
       DetailBottomNav,
       GoodsList,
-      Scroll
+      Scroll,
+      Toast
     },
     mixins:[itemListenerMixin],
     data(){
@@ -67,7 +70,9 @@
         recommend:{},
         getThemeTopY:null,
         themeTopY:[],
-        currentIndex:null
+        currentIndex:null,
+        message:'',
+        toastShow:false
       }
     },
     created() {
@@ -126,9 +131,14 @@
         obj.desc = this.goods.desc;
         obj.newPrice = this.goods.realPrice;
 
+        this.$store.dispatch('addCart',obj).then(res =>{
+          this.message = res
+        })
+        this.toastShow = true
+        setTimeout(() =>{
+          this.toastShow = false
+        },1500)
 
-        this.$store.dispatch('addCart',obj)
-        alert("已加入购物车")
       }
     }
   }
@@ -153,4 +163,13 @@
   bottom: 58px;
   overflow: hidden;
 }
+  .detail-toast{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+  }
 </style>
