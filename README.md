@@ -1,4 +1,4 @@
-# vue of on;ine store
+# vue of online store
 # bilibili-vue-project
 
 ## Project setup
