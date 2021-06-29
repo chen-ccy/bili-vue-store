@@ -34,47 +34,7 @@
     
  
     <h2 style="display: inline-block;">请选择部门</h2>
-    <template>
-     <el-select  v-model="value" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-            :disabled="item.disabled">
-        </el-option>
-    </template>
-    <el-table
-    :data="tableData.filter(data => !search || data.ename.toLowerCase().includes(search.toLowerCase()))"
-    :default-sort = "{prop: 'date', order: 'descending'}"
-    >
-    <el-table-column
-      label="员工代号"
-      prop="eid"
-      sortable
-      align="center"
-      >
-    </el-table-column>
-    <el-table-column
-      label="员工名称"
-      sortable
-      align="center"
-      prop="ename">
-    </el-table-column>
-     <el-table-column
-      label="员工年龄"
-      sortable
-      align="center"
-      prop="age">
-    </el-table-column>
-     <el-table-column
-      label="账号密码"
-      align="center"
-      prop="password">
-    </el-table-column>
-
-  </el-table>
-
+   
 
 
 
@@ -84,71 +44,7 @@
 
   
    
-    new Vue({
-      el:'#app',
-      data: {
-        options: [{
-          value: '选项1',
-          label: '销售部'
-        }, {
-          value: '选项2',
-          label: '车间',
-        }, {
-          value: '选项3',
-          label: '检测部'
-        }, {
-          value: '选项4',
-          label: '管理部'
-        }, {
-          value: '选项5',
-          label: '摸鱼部'
-        }],
-        value: '',
-        ruleForm: {
-          pass: '',
-          checkPass: '',
-          age: ''
-        },
-         tableData: [{
-          eid: '201',
-          ename: '王一',
-          departID: '上海市普陀区金沙江路 1518 弄',
-          age:35,
-          password:'aaaaa'
-        }, {
-          eid: '202',
-          ename: '陈二',
-          departID: '海市普陀区金沙江路 1518 弄',
-          age:25,
-          password:'aaaaa'
-        }, {
-          eid: '203',
-          ename: '张三',
-          departID: '上市普陀区金沙江路 1518 弄',
-          age:27,
-          password:'aaaaa'
-        }, {
-          eid: '204',
-          ename: '孙四',
-          departID: '上普陀区金沙江路 1518 弄',
-          age:30,
-          password:'aaaaa'
-        }],
-        search: ''
-      
-    },
-    methods: {
-      handleEdit(index, row) {
-        console.log(index, row);
-      },
-      handleDelete(index, row) {
-        console.log(index, row);
-      },
-      getTableInfo(){
-        this.tableData.push(...tableInfo)
-      }
-    },
-    })
+   
   </script>
 
 </body>
