@@ -1,5 +1,5 @@
 # vue of online store
-# [bilibili-vue-project] https://chen-ccy.github.io/vue-onlineStore/dist
+# [bilibili-vue-project](https://chen-ccy.github.io/vue-onlineStore/dist)
 
 ## Project setup
 ```
