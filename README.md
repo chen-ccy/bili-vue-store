@@ -5,7 +5,7 @@
 ### 1.这不是本人设计的项目，而是对 https://github.com/coderwhy/HYMall 这个项目的复现，本意用于熟悉vue项目开发的流程和思路
 ### 2.点在线浏览地址后，请点一次刷新，不然无法滚动，目前还无法解决这个bug
 ### [在线浏览地址](https://chen-ccy.github.io/vue-onlineStore/dist) 
-
+## ![image](https://github.com/MaiEmily/map/blob/master/public/image/首页.gif)
 
 ## Project setup
 ```
