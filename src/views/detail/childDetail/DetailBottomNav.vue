@@ -82,5 +82,6 @@
   }
   .buy{
     background-color: #f69;
+    color: white;
   }
 </style>
