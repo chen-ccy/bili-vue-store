@@ -7,6 +7,7 @@ import Display from "@/components/common/display";
 import home from "@/views/home/home";
 import Detail from "@/views/detail/Detail";
 import Cart from "@/views/cart/Cart";
+import Profile from "@/views/profile/Profile";
 
 const routes = [
   {
@@ -27,7 +28,7 @@ const routes = [
   },
   {
     path: '/profile',
-    component:Display
+    component:Profile
   },
   {
     path:'/detail/:iid',
