@@ -1,11 +1,11 @@
 <template>
-  <div class="goods-list-item" @click="goodItemClick">
+  <div class="goods-list-item" @click="goodItemClick" v-if="true">
     <img :src="goodsItemImage" alt="" @load="imageLoad">
-
     <div class="goods-info">
     <p>{{goodsItem.title}}</p>
     <span class="price">{{goodsItem.price}}</span>
     <span class="collect">{{goodsItem.cfav}}</span></div>
+
   </div>
 </template>
 
@@ -13,12 +13,19 @@
   export default {
     name: "GoodsListItem",
     props:{
-      goodsItem:{}
+      goodsItem:{
+        type:Object,
+        default(){
+          return {}
+        }
+      }
     },
     computed:{
       goodsItemImage(){
-        return this.goodsItem.image || this.goodsItem.show.img
+        return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
       }
+    },
+    mounted(){
     },
     methods:{
       imageLoad(){

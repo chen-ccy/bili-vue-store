@@ -36,7 +36,7 @@
   import FeatureView from "@/views/home/childComps/FeatureView";
 
 
-  import {getHomeMultidata,getHomeGoods} from "@/networks/home";
+  import {getHomeMultidata,getHomeGoods} from "@/network/home";
   //import {debounce} from "@/common/utils";
   import {itemListenerMixin} from "@/common/mixin";
 

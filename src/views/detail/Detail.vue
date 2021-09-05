@@ -36,8 +36,8 @@
   import Toast from "@/components/common/toast/Toast";
 
 
-  import {getDetail} from "@/networks/detail";
-  import {Goods,ShopInfo,GoodsParam,getRecommend} from "@/networks/detail";
+  import {getDetail} from "@/network/detail";
+  import {Goods,ShopInfo,GoodsParam,getRecommend} from "@/network/detail";
   import {itemListenerMixin} from "@/common/mixin";
   import {debounce} from "@/common/utils";
 

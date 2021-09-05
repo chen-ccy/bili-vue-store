@@ -8,6 +8,7 @@ import home from "@/views/home/home";
 import Detail from "@/views/detail/Detail";
 import Cart from "@/views/cart/Cart";
 import Profile from "@/views/profile/Profile";
+import Category from "@/views/category/Category";
 
 const routes = [
   {
@@ -20,7 +21,7 @@ const routes = [
   },
   {
     path: '/category',
-    component:Display
+    component:Category
   },
   {
     path: '/shopcart',

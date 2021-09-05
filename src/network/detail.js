@@ -1,4 +1,4 @@
-import {request} from "@/networks/request";
+import {request} from "@/network/request";
 
 export function getDetail(iid) {
   return request({
