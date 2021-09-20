@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-  <scroll id="tab-menu">
+  <scroll id="tab-menu" ref="scroll">
     <div class="menu-list">
       <div class="menu-list-item"
            :class="{active: index===currentIndex}"
@@ -30,11 +30,20 @@
 		    currentIndex: 0
       }
     },
+    mounted(){
+      setTimeout(()=>{
+        this.$refs.scroll.refresh()
+      },150)
+    },
     methods: {
 		  itemClick(index) {
+        
         this.currentIndex = index
         this.$emit('selectItem', index)
       }
+    },
+    watch:{
+
     }
 	}
 </script>
@@ -44,8 +53,11 @@
     height: 100vh;
   }
   #tab-menu{
-    height: calc(100% - 93px);
-    overflow: scroll;
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    top: 44px;
+    overflow: hidden;
   }
 .menu-list-item{
   width: 80px;

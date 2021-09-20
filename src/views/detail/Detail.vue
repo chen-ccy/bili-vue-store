@@ -89,9 +89,7 @@
          getRecommend().then(res => {
            this.recommend = res.data.list
          })
-        //console.log(this.recommend);
       })
-
       this.getThemeTopY = debounce(() =>{
         this.themeTopY = [];
         this.themeTopY.push(0)
@@ -99,9 +97,14 @@
         this.themeTopY.push(this.$refs.comment.$el.offsetTop)
         this.themeTopY.push(this.$refs.recommend.$el.offsetTop)
         this.themeTopY.push(Number.MAX_VALUE)
-        //console.log(this.themeTopY);
+
       },50)
 
+    },
+    mounted(){
+      setTimeout(()=>{
+        this.$refs.scroll.refresh()
+      },300)
     },
     methods:{
       imageLoad(){

@@ -2,7 +2,7 @@
   <div>
     <nav-bar class="detail-navBar">
       <div slot="left" class="left" @click="leftClick">
-        <img src="~assets/img/common/back.svg" alt="">
+        <img src="../../../assets/img/common/back.png" alt="">
       </div>
       <div slot="center" class="title">
         <div v-for="(item,index) in title"
@@ -50,6 +50,11 @@
   }
   .left{
     margin-top: 7px;
+    color: black;
+    cursor: pointer;
+  }
+  .left img{
+    width: 50%;
   }
   .title{
     display: flex;

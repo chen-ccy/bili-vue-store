@@ -9,13 +9,11 @@
 <script>
   import GridView from "@/components/common/gridView/GridView";
   import GoodsListItem from "@/components/content/goods/GoodsListItem";
-  import test from "@/components/content/goods/test";
   export default {
     name: "TabContentDetail",
     components: {
       GridView,
       GoodsListItem,
-      test
     },
     props: {
       categoryDetail: {

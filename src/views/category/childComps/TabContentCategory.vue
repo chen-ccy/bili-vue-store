@@ -3,7 +3,7 @@
     <grid-view :cols="3" :lineSpace="15" :v-margin="20" v-if="subcategories.list">
       <div class="item" v-for="(item, index) in subcategories.list" :key="index">
         <a :href="item.link">
-          <img class="item-img" :src="item.image" alt="">
+          <img class="item-img" :src="item.image" alt="" @load="imgLoad">
           <div class="item-text">{{item.title}}</div>
         </a>
       </div>
@@ -19,11 +19,24 @@
     components: {
       GridView
     },
+    data(){
+      return{
+        loadCount:0
+      }
+    },
     props: {
       subcategories: {
         type: Object,
         default() {
           return []
+        }
+      }
+    },
+    methods:{
+      imgLoad(){
+        this.loadCount++
+        if(this.loadCount==16){
+          this.$emit('imgLoad')
         }
       }
     }

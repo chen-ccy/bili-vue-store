@@ -32,7 +32,6 @@
         this.$bus.$emit("itemImageLoad")
       },
       goodItemClick(){
-        //console.log(this.goodsItem)
         this.$router.push('/detail/'+this.goodsItem.iid)
       }
     }
@@ -44,6 +43,7 @@
     padding-bottom: 40px;
     width: 46%;
     position: relative;
+    cursor: pointer;
   }
   .goods-list-item img{
     width: 100%;

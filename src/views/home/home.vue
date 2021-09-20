@@ -37,7 +37,7 @@
 
 
   import {getHomeMultidata,getHomeGoods} from "@/network/home";
-  //import {debounce} from "@/common/utils";
+  
   import {itemListenerMixin} from "@/common/mixin";
 
   export default {
@@ -88,7 +88,9 @@
 
     },
     mounted(){
-
+      setTimeout(()=>{
+        this.$refs.scroll.refresh()
+      },300)
     },
 
     methods:{
@@ -151,7 +153,6 @@
 <style scoped>
 
   .home{
-
     height: 100vh;
     position: relative;
   }
@@ -166,9 +167,6 @@
     background-color: var(--color-high-text);
   }
 
-  .home-swiper{
-
-  }
   .content{
     position: absolute;
     bottom: 44px;

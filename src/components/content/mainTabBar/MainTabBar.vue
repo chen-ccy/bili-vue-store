@@ -2,7 +2,7 @@
   <div>
     <TabBar>
       <TabBarItem path="/home">
-        <img src="~assets/img/tabbar/home.svg" slot="item-icon">
+        <img src="~assets/img/tabbar/home.svg"  slot="item-icon" >
         <img src="~assets/img/tabbar/home_active.svg" slot="item-icon-active">
         <div slot="item-text">首页</div>
       </TabBarItem>

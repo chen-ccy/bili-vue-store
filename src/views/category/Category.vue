@@ -1,20 +1,23 @@
 <template>
-  <div id="category">
+  <div class="category">
     <nav-bar class="nav-bar"><div slot="center">商品分类</div></nav-bar>
-    <div class="content">
       <tab-menu :categories="categories"
                 @selectItem="selectItem"></tab-menu>
 
-      <scroll id="tab-content" :data="[categoryData]" :probe-type=3>
-        <div>
+    <Scroll class="tab-content"
+            :data="[categoryData]"
+            :probe-type=3
+            ref="scroll"
+            @imgLoad="imgLoad"
+      >
+      <div>
 
-          <tab-content-category :subcategories="showSubcategory"></tab-content-category>
-          <tab-control :title="['综合', '新品', '销量']"
-                       @tabClick="tabClick"></tab-control>
-          <tab-content-detail :category-detail="showCategoryDetail"></tab-content-detail>
-        </div>
-      </scroll>
-    </div>
+        <tab-content-category :subcategories="showSubcategory" ></tab-content-category>
+        <tab-control :title="['综合', '新品', '销量']"
+                      @tabClick="tabClick"></tab-control>
+        <tab-content-detail :category-detail="showCategoryDetail"></tab-content-detail>
+      </div>
+    </Scroll>
   </div>
 </template>
 
@@ -29,7 +32,8 @@
 
   import {getCategoryDetail,getSubcategory,getCategory} from "@/network/category";
   import {POP, SELL, NEW} from "@/common/const";
-  import {tabControlMixin} from "@/common/mixin";
+  import {tabControlMixin,itemListenerMixin} from "@/common/mixin";
+
 
   export default {
 		name: "Category",
@@ -41,7 +45,7 @@
       TabContentCategory,
       TabContentDetail
     },
-    mixins: [tabControlMixin],
+    mixins: [tabControlMixin,itemListenerMixin],
     data() {
 		  return {
 		    categories: [],
@@ -63,6 +67,12 @@
 		    if (this.currentIndex === -1) return []
 		    return this.categoryData[this.currentIndex].categoryDetail[this.currentType]
       }
+    },
+    mounted(){
+      setTimeout(()=>{
+        this.$refs.scroll.refresh()
+      },200)
+      
     },
     methods: {
 		  _getCategory() {
@@ -110,36 +120,41 @@
        */
       selectItem(index) {
         this._getSubcategories(index)
+      },
+      imgLoad(){
+        this.$refs.scroll.refresh()
       }
     }
 	}
 </script>
 
 <style scoped>
-  #category {
-    height: calc(100vh - 45px) ;
+  .category {
+    height: 100vh;
     position: relative;
-    overflow: hidden;
   }
 
   .nav-bar {
-    background-color: var(--color-tint);
-    font-weight: 700;
-    color: #fff;
-  }
-
-  .content {
-    position: absolute;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    top: 44px;
-    bottom: 0px;
-    display: flex;
+    z-index: 9;
+    color: white;
+    background-color: var(--color-high-text);
   }
 
-  #tab-content {
-    height: 100%;
-    flex: 1;
-    overflow: scroll;
+  /* .content {
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+  } */
+
+  .tab-content {
+   position: absolute;
+    bottom: 44px;
+    left: 80px;
+    top: 44px;
+    overflow: hidden;
   }
 </style>

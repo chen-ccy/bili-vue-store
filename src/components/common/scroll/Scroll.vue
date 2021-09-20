@@ -48,13 +48,11 @@
 
         // 3.监听上拉到底部
         this.scroll.on('pullingUp', () => {
-          console.log('上拉加载');
           this.$emit('pullingUp')
         })
       },
       refresh() {
         this.scroll && this.scroll.refresh && this.scroll.refresh()
-        //console.log('refresh');
       },
       finishPullUp() {
         this.scroll && this.scroll.finishPullUp && this.scroll.finishPullUp()
