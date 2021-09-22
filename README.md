@@ -7,8 +7,7 @@
 ### 3.此项目功能并不完整，只有些基本的功能，如用户页的功能、下单功能都没有实现。
 ### [在线浏览地址](http://120.24.92.39:86) 
 ## 演示效果如下
-
-## ![image](https://github.com/chen-ccy/vue-onlineStore/blob/gh-pages/public/image/%E9%A6%96%E9%A1%B5.gif?raw=true)    ![image](https://github.com/chen-ccy/vue-onlineStore/blob/gh-pages/public/image/%E8%AF%A6%E6%83%85%E9%A1%B5+%E8%B4%AD%E7%89%A9%E8%BD%A6.gif?raw=true)  ![image](https://github.com/chen-ccy/online-store/blob/master/%E6%BC%94%E7%A4%BA%E6%95%88%E6%9E%9C/%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA1.gif)
+## ![image](https://github.com/chen-ccy/online-store/blob/master/%E6%BC%94%E7%A4%BA%E6%95%88%E6%9E%9C/%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA1.gif)  ![image](https://github.com/chen-ccy/online-store/blob/master/%E6%BC%94%E7%A4%BA%E6%95%88%E6%9E%9C/%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA2.gif)
 
 
 ## Project setup
