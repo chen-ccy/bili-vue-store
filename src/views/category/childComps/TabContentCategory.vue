@@ -35,7 +35,7 @@
     methods:{
       imgLoad(){
         this.loadCount++
-        if(this.loadCount==16){
+        if(this.loadCount<16){
           this.$emit('imgLoad')
         }
       }
